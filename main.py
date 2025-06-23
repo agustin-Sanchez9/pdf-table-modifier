@@ -4,7 +4,7 @@ import pandas as pd
 dataframes = []
 encabezado_fijo = ["Producto", "Pack/Caja", "Precio Uni.", "Precio Caja"]
 
-with pdfplumber.open("/home/ags/Descargas/LISTADO MAYORISTA JUNIO 25 (1).pdf") as pdf:
+with pdfplumber.open(r"C:\Users\agust\Desktop\mayorista-bebidas\lista\lista-modificar.pdf") as pdf:
     for i, page in enumerate(pdf.pages):
         tables = page.extract_tables()
 
@@ -16,6 +16,6 @@ with pdfplumber.open("/home/ags/Descargas/LISTADO MAYORISTA JUNIO 25 (1).pdf") a
 
 df_total = pd.concat(dataframes, ignore_index=True)
 
-df_total.to_csv("/home/ags/Descargas/lista-mayorista.csv")
+df_total.to_csv(r"C:\Users\agust\Desktop\mayorista-bebidas\lista\lista-modificar.csv")
 
 print("program has ended.")
